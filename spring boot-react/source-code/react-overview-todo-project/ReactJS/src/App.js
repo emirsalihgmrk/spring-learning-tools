@@ -1,0 +1,19 @@
+exceptional
+approve
+distract
+insane
+boundary
+gawking
+stimulating
+mention
+glad
+submisivve
+jail
+reschedule
+settled
+take off
+sore
+obeys
+tie
+persistant
+plenty
