@@ -1,0 +1,11 @@
+#encode&decode
+encoding -> openssl base64 -in <plain.txt> -out <encoded.txt>
+decoding -> openssl base64 -d -in <encoded.txt> -out <decoded.txt>
+
+#encrypt&decrypt
+encryption -> openssl enc -aes-256-cbc -pass pass:<secret_key> -pbkdf2 -in <plain.txt> -out <encrypted.txt> -base64
+
+decryption -> openssl enc -aes-256-cbc -base64 -pass pass:<secret_key> -d -pbkdf2 -in <encrypted.txt> -out <decrypted.txt>
+
+#hashing
+echo -n "gumruk@12345" | openssl dgst -sha256
