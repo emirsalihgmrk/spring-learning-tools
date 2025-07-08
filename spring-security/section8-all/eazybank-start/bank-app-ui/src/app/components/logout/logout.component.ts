@@ -20,6 +20,4 @@ export class LogoutComponent implements OnInit {
     //window.sessionStorage.setItem("XSRF-TOKEN","");
     this.router.navigate(['/login']);
   }
-
-
 }
