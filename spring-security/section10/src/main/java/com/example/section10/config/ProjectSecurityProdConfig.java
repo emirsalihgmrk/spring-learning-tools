@@ -2,7 +2,10 @@ package com.example.section10.config;
 
 import com.example.section10.exceptionhandler.CustomAccessDeniedHandler;
 import com.example.section10.exceptionhandler.CustomBasicAuthenticationEntryPoint;
+import com.example.section10.filter.AuthoritiesLoggingAfterFilter;
+import com.example.section10.filter.AuthoritiesLoggingAtFilter;
 import com.example.section10.filter.CsrfCookieFilter;
+import com.example.section10.filter.RequestValidationBeforeFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -43,6 +46,9 @@ public class ProjectSecurityProdConfig {
                 }))
                 .csrf(csrfConfig -> csrfConfig.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
                 .addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
+                .addFilterBefore(new RequestValidationBeforeFilter(), BasicAuthenticationFilter.class)
+                .addFilterAfter(new AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter.class)
+                .addFilterAt(new AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter.class)
                 .redirectToHttps(withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((requests) -> requests
