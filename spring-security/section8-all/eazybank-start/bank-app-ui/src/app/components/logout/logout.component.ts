@@ -7,6 +7,7 @@ import { User } from 'src/app/model/user.model';
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.css']
 })
+
 export class LogoutComponent implements OnInit {
   
   user = new User();
@@ -16,7 +17,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit(): void {
     window.sessionStorage.setItem("userdetails","");
-    window.sessionStorage.setItem("XSRF-TOKEN","");
+    //window.sessionStorage.setItem("XSRF-TOKEN","");
     this.router.navigate(['/login']);
   }
 
