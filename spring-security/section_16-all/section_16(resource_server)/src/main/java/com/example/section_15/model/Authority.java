@@ -1,14 +1,14 @@
-package com.example.authserver.model;
+package com.example.section_15.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 @Table(name = "authorities")
 public class Authority {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

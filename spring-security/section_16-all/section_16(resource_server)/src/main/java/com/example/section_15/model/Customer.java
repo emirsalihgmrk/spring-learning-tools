@@ -1,4 +1,4 @@
-package com.example.authserver.model;
+package com.example.section_15.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,8 +10,7 @@ import java.sql.Date;
 import java.util.Set;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 public class Customer {
 
     @Id
@@ -35,7 +34,7 @@ public class Customer {
     @JsonIgnore
     private Date createDt;
 
-    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "customer",fetch = FetchType.EAGER)
     @JsonIgnore
     private Set<Authority> authorities;
 }
